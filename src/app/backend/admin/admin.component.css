@@ -11,7 +11,13 @@
 
 .mat-table {
   overflow: auto;
-  max-height: 500px;
+  max-height: 700px;
+}
+
+mat-row {
+  height: 100px;
+  overflow: hidden;
+  align-items: end;
 }
 
 a {

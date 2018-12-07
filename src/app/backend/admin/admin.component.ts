@@ -12,17 +12,18 @@ import { NewPostComponent } from '../new-post/new-post.component';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  blogPosts: Post[];
+  blogPosts;
   displayedColumns = ['date_posted', 'title', 'imgURL', 'content', 'delete'];
   dataSource = new PostDataSource(this.postService);
 
   constructor(private postService: PostService, private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.adminBlogSubscription();
   }
 
   adminBlogSubscription() {
-    this.postService.getBlogPosts()
+    this.dataSource.connect()
       .subscribe(data => this.blogPosts = data);
   }
 
@@ -31,11 +32,13 @@ export class AdminComponent implements OnInit {
       width: '600px',
       data: 'Nouvel article'
     });
-    dialogRef.componentInstance.event.subscribe((result) => {
-      this.postService.addPost(result.data);
+    dialogRef.componentInstance.event.subscribe(() => {
       this.dataSource = new PostDataSource(this.postService);
     });
+  }
 
+  deleteBlogPost(blogPostId){
+    this.postService.deletePost(blogPostId);
   }
 }
 

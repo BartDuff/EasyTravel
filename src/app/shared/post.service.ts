@@ -6,10 +6,19 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PostService {
   blogPosts;
+  deleteObj;
   constructor(private db: AngularFirestore) { }
 
   getBlogPosts(){
-    this.blogPosts = this.db.collection('posts').valueChanges();
+    this.blogPosts = this.db.collection('posts', ref => ref.orderBy('idPost', "desc")).valueChanges();
     return this.blogPosts;
+  }
+
+  addBlogPost(blogPost){
+    this.db.collection('posts').add(blogPost);
+  }  
+
+  deletePost(id){
+    this.db.collection("posts", ref => ref.where('idPost', '==', id)).snapshotChanges();
   }
 }
