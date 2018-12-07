@@ -27,9 +27,13 @@ export class AdminComponent implements OnInit {
   }
 
   openDialogBox(): void {
-    let dialog = this.dialog.open(NewPostComponent, {
+    const dialogRef = this.dialog.open(NewPostComponent, {
       width: '600px',
       data: 'Nouvel article'
+    });
+    dialogRef.componentInstance.event.subscribe((result) => {
+      this.postService.addPost(result.data);
+      this.dataSource = new PostDataSource(this.postService);
     });
 
   }

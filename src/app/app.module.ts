@@ -63,6 +63,9 @@ const ROUTES: Routes = [
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.config)
   ],
+  entryComponents: [
+    NewPostComponent
+  ],
   providers: [ PostService ],
   bootstrap: [AppComponent]
 })

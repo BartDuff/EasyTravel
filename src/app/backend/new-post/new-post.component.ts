@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { PostService } from 'src/app/shared/post.service';
 
 @Component({
   selector: 'app-new-post',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-
-  constructor() { }
+  public event: EventEmitter<any> = new EventEmitter();
+  constructor(public dialogRef: MatDialogRef<NewPostComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dataService: PostService) { }
 
   ngOnInit() {
   }
