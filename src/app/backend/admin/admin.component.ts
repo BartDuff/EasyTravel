@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  deleteBlogPost(blogPostId){
+  deleteBlogPost(blogPostId) {
     this.postService.deletePost(blogPostId);
   }
 }
