@@ -34,3 +34,8 @@ Here is a preview of the admin side of the blog, for listing articles:
 Adding a new blog post:
 
 <img width="1083" alt="capture d ecran 2018-12-08 a 03 03 07" src="https://user-images.githubusercontent.com/8402383/49680552-f575a880-fa95-11e8-8d95-ddd162ded77f.png">
+
+Finally, this is the visitor side of the blog:
+
+
+<img width="1170" alt="capture d ecran 2018-12-08 a 03 06 35" src="https://user-images.githubusercontent.com/8402383/49680592-500f0480-fa96-11e8-85a5-0bbecd5c238c.png">
